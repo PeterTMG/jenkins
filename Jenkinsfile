@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('SendDeployToTest') {
+      steps {
+        httpRequest(url: 'http://localhost:30600/rest/api/submit-job/AutoDeployTest', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', uploadFile: 'e:\\test.json')
+      }
+    }
+
   }
 }
